@@ -21,13 +21,11 @@ virsh nodedev-reattach $VIRSH_GPU_SERIAL
 echo 1 > /sys/class/vtconsole/vtcon0/bind
 echo 0 > /sys/class/vtconsole/vtcon1/bind
 
-# Re-Bind EFI-Framebuffer DO NOT UNCOMMET
-# echo "efi-framebuffer.0" > /sys/bus/platform/drivers/efi-framebuffer/bind
+# Reload the Drivers 
 
 modprobe amdgpu
 modprobe snd_hda_intel
 
 # Restart Display Manager
 systemctl start sddm.service
-
 
